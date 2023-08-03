@@ -1,0 +1,53 @@
+<idea-plugin>
+  <id>com.your.company.unique.plugin.id</id>
+  <name>CaiyunTranslate</name>
+  <version>2.0</version>
+  <vendor email="zhoubk1451@gmail.com" >caiyun</vendor>
+
+  <description><![CDATA[
+      简单好用的翻译插件<br>
+      选中中文使用快捷键 alt + 1 快速替换成英文，方便命名，写英文注释 <br>
+      选中英文使用快捷键 alt + 1 会在提示框翻译中文，方便阅读英文文档 <br>
+    ]]></description>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+
+  -->
+    <depends>com.intellij.modules.lang</depends>
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+    <action id="translate" class="TranslateAction" text="CaiyunTranslate">
+      <keyboard-shortcut keymap="$default" first-keystroke="alt 1"/>
+    </action>
+    <action id="translateLowerULine" class="TranslateLowerULineAction" text="中-&gt;英 (小写+下划线)"
+            description="中-&gt;英 (小写+下划线)">
+      <!--  设置快捷键为ctrl+1  -->
+      <keyboard-shortcut keymap="$default" first-keystroke="alt 2"/>
+    </action>
+    <action id="translateWord" class="TranslateWordAction" text="中-&gt;英(单词首字母大写)"
+            description="中-&gt;英(单词首字母大写)">
+      <!--  设置快捷键为ctrl+2  -->
+      <keyboard-shortcut keymap="$default" first-keystroke="alt 3"/>
+    </action>
+    <group popup="true" id="CaiyunTranslateMenu" text="CaiyunTranslate" >
+      <reference ref="translate"/>
+      <!-- 设置分割线   -->
+      <separator/>
+      <reference ref="translateLowerULine"/>
+      <separator/>
+      <reference ref="translateWord"/>
+      <!-- 添加到右侧菜单栏，并置顶  -->
+      <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+    </group>
+  </actions>
+
+</idea-plugin>

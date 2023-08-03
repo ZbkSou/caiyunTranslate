@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact name="caiyun_translate:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/caiyun_translate_jar</output-path>
+    <root id="root">
+      <element id="archive" name="caiyun_translate.jar">
+        <element id="module-output" name="caiyun_translate" />
+      </element>
+    </root>
+  </artifact>
+</component>
